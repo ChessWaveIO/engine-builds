@@ -1,0 +1,39 @@
+# syntax=docker/dockerfile:1.6
+FROM ghcr.io/shepherdjerred/macos-cross-compiler:latest AS builder
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+RUN mkdir -p /tmp && chmod 1777 /tmp
+ARG VIRI_REPO=https://github.com/cosmobobak/viridithas
+ARG VIRI_REF=master
+ARG NET_OWNER=cosmobobak
+ARG NET_REPO=viridithas-networks
+ARG NET_TAG=latest
+ARG GITHUB_TOKEN
+
+RUN apt-get update && apt-get install -y --no-install-recommends git curl jq zstd clang make pkg-config cmake && rm -rf /var/lib/apt/lists/*
+ENV RUSTUP_HOME="/tmp/rustup"
+ENV CARGO_HOME="/tmp/cargo"
+ENV PATH="${CARGO_HOME}/bin:${PATH}"
+RUN curl -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --target aarch64-apple-darwin
+WORKDIR /src
+RUN set -euo pipefail; \
+    git clone --depth 1 --branch "${VIRI_REF}" "${VIRI_REPO}" . || { \
+      git clone "${VIRI_REPO}" .; \
+      git checkout --force "${VIRI_REF}"; \
+    }; \
+    git submodule update --init --recursive
+RUN set -eux; api_base="https://api.github.com/repos/${NET_OWNER}/${NET_REPO}/releases"; \
+    if [ "${NET_TAG}" = "latest" ]; then api_url="${api_base}/latest"; else api_url="${api_base}/tags/${NET_TAG}"; fi; \
+    auth=(); [ -n "${GITHUB_TOKEN:-}" ] && auth=(-H "Authorization: token ${GITHUB_TOKEN}"); \
+    curl -fsSL "${auth[@]}" "${api_url}" | jq -r '.assets[].browser_download_url | select(endswith(".zst"))' | head -n1 | xargs -r -I{} curl -fSL -o viridithas.nnue.zst "{}"
+RUN CC_aarch64_apple_darwin=oa64-clang \
+    AR_aarch64_apple_darwin=/cctools/bin/arm64-apple-darwin24-ar \
+    BINDGEN_EXTRA_CLANG_ARGS_aarch64_apple_darwin="--target=arm64-apple-darwin -isysroot /osxcross/SDK/MacOSX15.0.sdk" \
+    CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=oa64-clang \
+    cargo build --release --target aarch64-apple-darwin --features syzygy,bindgen
+RUN git rev-parse HEAD > /src/VIRIDITHAS_COMMIT.txt
+
+FROM scratch AS export
+COPY --from=builder /src/target/aarch64-apple-darwin/release/viridithas /viridithas-macos-arm64
+COPY --from=builder /src/viridithas.nnue.zst /viridithas.nnue.zst
+COPY --from=builder /src/VIRIDITHAS_COMMIT.txt /VIRIDITHAS_COMMIT.txt

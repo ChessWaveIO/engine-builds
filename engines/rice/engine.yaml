@@ -1,0 +1,30 @@
+id: rice
+name: Rice
+engine: rice-8.0.0-v2.exe
+author: rafid-dev
+version: 8.0.0
+elo: 3500
+style: Balanced
+description: C++ UCI chess engine.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/rafid-dev/rice
+source_repo: https://github.com/rafid-dev/rice
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  windows-x86_64:
+    engine: rice-8.0.0-v2.exe
+release_assets:
+  windows-x86_64:
+    url: https://github.com/rafid-dev/rice/releases/download/8.0.0/rice-8.0.0-v2.exe
+compliance:
+  source_ref: 8.0.0
+  license_url: https://raw.githubusercontent.com/rafid-dev/rice/main/LICENSE

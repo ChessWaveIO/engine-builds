@@ -1,0 +1,34 @@
+id: starzix
+name: Starzix
+engine: starzix-6.1-avx2
+author: zzzzz151
+version: '6.1'
+elo: 3500
+style: Balanced
+description: Strong C++ UCI chess engine.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: WTFPL
+homepage: https://github.com/zzzzz151/Starzix
+source_repo: https://github.com/zzzzz151/Starzix
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: starzix-6.1-avx2
+  windows-x86_64:
+    engine: Starzix-6.1-avx2.exe
+release_assets:
+  linux-x86_64:
+    url: https://github.com/zzzzz151/Starzix/releases/download/6.1/starzix-6.1-avx2
+  windows-x86_64:
+    url: https://github.com/zzzzz151/Starzix/releases/download/6.1/Starzix-6.1-avx2.exe
+compliance:
+  source_ref: '6.1'
+  license_url: https://raw.githubusercontent.com/zzzzz151/Starzix/main/LICENSE

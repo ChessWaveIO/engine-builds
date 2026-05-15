@@ -1,0 +1,36 @@
+id: stormphrax
+name: Stormphrax
+engine: stormphrax-7.0.0-avx2
+author: Ciekce
+version: 7.0.0
+elo: 3500
+style: Balanced
+description: UCI chess engine with NNUE trained from zero knowledge.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/Ciekce/Stormphrax
+source_repo: https://github.com/Ciekce/Stormphrax
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: stormphrax-7.0.0-avx2
+  windows-x86_64:
+    engine: stormphrax-7.0.0-avx2.exe
+release_assets:
+  linux-x86_64:
+    url: https://github.com/Ciekce/Stormphrax/releases/download/v7.0.0/stormphrax-7.0.0-avx2
+    sha256: a4f52602186f60cdf45789acf6eeb2b43ba2280a89524a43ee8ced4dff4a35b3
+  windows-x86_64:
+    url: https://github.com/Ciekce/Stormphrax/releases/download/v7.0.0/stormphrax-7.0.0-avx2.exe
+    sha256: d21252c31b837f575fea9ee33466eab2399d02bca3481438beaaafb67541bddb
+compliance:
+  source_ref: v7.0.0
+  license_url: https://raw.githubusercontent.com/Ciekce/Stormphrax/main/LICENSE
