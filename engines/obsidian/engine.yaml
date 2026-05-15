@@ -1,0 +1,30 @@
+id: obsidian
+name: Obsidian
+engine: Obsidian160-avx2.exe
+author: gab8192
+version: '16.0'
+elo: 3500
+style: Balanced
+description: Top tier UCI chess engine written in C++.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/gab8192/Obsidian
+source_repo: https://github.com/gab8192/Obsidian
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  windows-x86_64:
+    engine: Obsidian160-avx2.exe
+release_assets:
+  windows-x86_64:
+    url: https://github.com/gab8192/Obsidian/releases/download/v16.0/Obsidian160-avx2.exe
+compliance:
+  source_ref: v16.0
+  license_url: https://raw.githubusercontent.com/gab8192/Obsidian/main/LICENSE

@@ -1,0 +1,38 @@
+id: rubichess
+name: RubiChess
+engine: RubiChess-20240817_x86-64
+author: Andreas Matthies
+version: '20240817'
+elo: 3500
+style: Balanced
+description: UCI chess engine.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/Matthies/RubiChess
+source_repo: https://github.com/Matthies/RubiChess
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: RubiChess-20240817_x86-64
+  windows-x86_64:
+    engine: RubiChess-20240817_x86-64.exe
+release_assets:
+  linux-x86_64:
+    url: https://github.com/Matthies/RubiChess/releases/download/20240817/RubiChess-20240817.zip
+    sha256: 03f613173cdd34998d8a01e972d8348791d11369c1506e96cc33467a1666bf86
+    path: RubiChess-20240817/linux/RubiChess-20240817_x86-64
+  windows-x86_64:
+    url: https://github.com/Matthies/RubiChess/releases/download/20240817/RubiChess-20240817.zip
+    sha256: 03f613173cdd34998d8a01e972d8348791d11369c1506e96cc33467a1666bf86
+    path: RubiChess-20240817/windows/RubiChess-20240817_x86-64.exe
+compliance:
+  source_ref: '20240817'
+  license_url: https://raw.githubusercontent.com/Matthies/RubiChess/master/License.txt

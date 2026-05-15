@@ -1,0 +1,14 @@
+engines:
+  - name: caissa
+    include: true
+  - name: clover
+    include: true
+  - name: ethereal
+    include: true
+  - name: patricia
+    include: true
+  - name: viridithas
+    include: true
+  - name: stockfish
+    include: false
+    download_url: https://stockfishchess.org/download/

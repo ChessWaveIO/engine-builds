@@ -1,0 +1,35 @@
+SHELL := /bin/bash
+
+OUT ?= ../../out/v1.0.0/linux-x86_64/$(ENGINE)
+
+.PHONY: prep linux linux-nocache macos-silicon windows clean
+
+prep:
+	@mkdir -p "$(OUT)"
+
+linux: prep
+	@set -euo pipefail; \
+	if [[ -f Dockerfile ]]; then \
+		binary="$$(ruby -ryaml -e 'data = YAML.load_file(ARGV[0]); print data.dig("platforms", "linux-x86_64", "engine")' engine.yaml)"; \
+		img="$$(docker build -q --target export -f Dockerfile .)"; \
+		cid="$$(docker create "$$img" /bin/true)"; \
+		docker cp "$$cid:/$$binary" "$(OUT)/$$binary"; \
+		docker cp "$$cid:/LICENSE" "$(OUT)/LICENSE" 2>/dev/null || true; \
+		docker cp "$$cid:/UPSTREAM.txt" "$(OUT)/UPSTREAM.txt" 2>/dev/null || true; \
+		docker rm "$$cid" >/dev/null; \
+		chmod 0755 "$(OUT)/$$binary"; \
+		ls -l "$(OUT)"; \
+	else \
+		bash ../../scripts/import_release_asset.sh "$(ENGINE)" linux-x86_64 "$(OUT)"; \
+	fi
+
+linux-nocache: linux
+
+macos-silicon: prep
+	@bash ../../scripts/import_release_asset.sh "$(ENGINE)" macos-silicon "$(OUT)"
+
+windows: prep
+	@bash ../../scripts/import_release_asset.sh "$(ENGINE)" windows-x86_64 "$(OUT)"
+
+clean:
+	@rm -rf "$(OUT)"

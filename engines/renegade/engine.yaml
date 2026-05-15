@@ -1,0 +1,34 @@
+id: renegade
+name: Renegade
+engine: Renegade_1.2.0_linux_x86-64-bmi2
+author: pkrisz99
+version: 1.2.0
+elo: 3500
+style: Balanced
+description: Strong chess engine using a neural network to evaluate positions.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: MIT
+homepage: https://github.com/pkrisz99/Renegade
+source_repo: https://github.com/pkrisz99/Renegade
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: Renegade_1.2.0_linux_x86-64-bmi2
+  windows-x86_64:
+    engine: Renegade_1.2.0_windows_x86-64-bmi2.exe
+release_assets:
+  linux-x86_64:
+    url: https://github.com/pkrisz99/Renegade/releases/download/v1.2.0/Renegade_1.2.0_linux_x86-64-bmi2
+  windows-x86_64:
+    url: https://github.com/pkrisz99/Renegade/releases/download/v1.2.0/Renegade_1.2.0_windows_x86-64-bmi2.exe
+compliance:
+  source_ref: v1.2.0
+  license_url: https://raw.githubusercontent.com/pkrisz99/Renegade/main/LICENSE

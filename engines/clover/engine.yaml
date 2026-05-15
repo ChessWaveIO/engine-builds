@@ -1,0 +1,30 @@
+id: clover
+name: Clover
+engine: clover-linux-x86_64
+author: Luca Metehau
+version: "9.1"
+elo: 3565
+style: Balanced
+description: Strong open-source UCI chess engine with NNUE evaluation.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ""
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/lucametehau/CloverEngine
+source_repo: https://github.com/lucametehau/CloverEngine
+icon: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/clover/image.jpg
+banner: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/clover/image.jpg
+recommended_for:
+  - Advanced
+  - Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: clover-linux-x86_64
+    required_files:
+      - quantised.nnue
+  macos-silicon:
+    engine: clover
+    required_files:
+      - quantised.nnue
