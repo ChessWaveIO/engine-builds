@@ -13,7 +13,7 @@ uci_options:
 license: MIT
 homepage: https://github.com/Adam-Kulju/Patricia
 source_repo: https://github.com/Adam-Kulju/Patricia
-icon: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/patricia/image.jpg
+icon: ''
 banner: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/patricia/image.jpg
 recommended_for:
   - Advanced

@@ -14,7 +14,7 @@ uci_options:
 license: MIT
 homepage: https://github.com/Witek902/Caissa
 source_repo: https://github.com/Witek902/Caissa
-icon: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/caissa/image.jpg
+icon: ''
 banner: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/caissa/image.jpg
 recommended_for:
   - Advanced

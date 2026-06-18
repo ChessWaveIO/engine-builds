@@ -14,7 +14,7 @@ uci_options:
 license: MIT
 homepage: https://github.com/cosmobobak/viridithas
 source_repo: https://github.com/cosmobobak/viridithas
-icon: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/viridithas/image.jpg
+icon: ''
 banner: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/viridithas/image.jpg
 recommended_for:
   - Advanced

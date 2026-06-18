@@ -14,7 +14,7 @@ uci_options:
 license: GPL-3.0
 homepage: https://github.com/lucametehau/CloverEngine
 source_repo: https://github.com/lucametehau/CloverEngine
-icon: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/clover/image.jpg
+icon: ''
 banner: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/clover/image.jpg
 recommended_for:
   - Advanced

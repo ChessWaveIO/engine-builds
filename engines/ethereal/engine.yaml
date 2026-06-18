@@ -14,7 +14,7 @@ uci_options:
 license: GPL-3.0
 homepage: https://github.com/AndyGrant/Ethereal
 source_repo: https://github.com/AndyGrant/Ethereal
-icon: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/ethereal/image.jpg
+icon: ''
 banner: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/ethereal/image.jpg
 recommended_for:
   - Advanced
