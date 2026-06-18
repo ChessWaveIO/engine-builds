@@ -1,0 +1,38 @@
+id: avalanche
+name: Avalanche
+engine: Avalanche-2.1.0-x86_64-linux-v2
+author: SnowballSH
+version: 2.1.0
+elo: 3300
+style: Balanced
+description: UCI chess engine written in Zig.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: MIT
+homepage: https://github.com/SnowballSH/Avalanche
+source_repo: https://github.com/SnowballSH/Avalanche
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: Avalanche-2.1.0-x86_64-linux-v2
+  macos-silicon:
+    engine: Avalanche-2.1.0-aarch64-macos-m1
+  windows-x86_64:
+    engine: Avalanche-2.1.0-x86_64-win-v2.exe
+release_assets:
+  linux-x86_64:
+    url: https://github.com/SnowballSH/Avalanche/releases/download/v2.1.0/Avalanche-2.1.0-x86_64-linux-v2
+  macos-silicon:
+    url: https://github.com/SnowballSH/Avalanche/releases/download/v2.1.0/Avalanche-2.1.0-aarch64-macos-m1
+  windows-x86_64:
+    url: https://github.com/SnowballSH/Avalanche/releases/download/v2.1.0/Avalanche-2.1.0-x86_64-win-v2.exe
+compliance:
+  source_ref: v2.1.0
+  license_url: https://raw.githubusercontent.com/SnowballSH/Avalanche/master/LICENSE

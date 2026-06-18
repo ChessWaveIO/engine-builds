@@ -1,0 +1,34 @@
+id: cheers
+name: Cheers
+engine: cheers-v1.0.0-x86_64-linux-gnu-avx2
+author: Algorhythm
+version: 1.0.0
+elo: 3020
+style: Balanced
+description: UCI chess engine written in Rust.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: Open source; audit upstream license
+homepage: https://github.com/Algorhythm-sxv/Cheers
+source_repo: https://github.com/Algorhythm-sxv/Cheers
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: cheers-v1.0.0-x86_64-linux-gnu-avx2
+  windows-x86_64:
+    engine: cheers-v1.0.0-x86_64-pc-windows-gnu-avx2.exe
+release_assets:
+  linux-x86_64:
+    url: https://github.com/Algorhythm-sxv/Cheers/releases/download/v1.0.0/cheers-v1.0.0-x86_64-linux-gnu-avx2
+  windows-x86_64:
+    url: https://github.com/Algorhythm-sxv/Cheers/releases/download/v1.0.0/cheers-v1.0.0-x86_64-pc-windows-gnu-avx2.exe
+compliance:
+  source_ref: v1.0.0
+  license_url: https://raw.githubusercontent.com/Algorhythm-sxv/Cheers/master/LICENSE

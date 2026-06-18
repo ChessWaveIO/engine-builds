@@ -1,0 +1,34 @@
+id: princhess
+name: Princhess
+engine: princhess
+author: Princess Lana, Jacob Jackson
+version: 0.21.0
+elo: 3225
+style: Tactical
+description: UCI-compatible CPU MCTS chess engine written in Rust.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/princesslana/princhess
+source_repo: https://github.com/princesslana/princhess
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: princhess
+  windows-x86_64:
+    engine: princhess.exe
+release_assets:
+  linux-x86_64:
+    url: https://github.com/princesslana/princhess/releases/download/0.21.0/princhess
+  windows-x86_64:
+    url: https://github.com/princesslana/princhess/releases/download/0.21.0/princhess.exe
+compliance:
+  source_ref: 0.21.0
+  license_url: https://raw.githubusercontent.com/princesslana/princhess/main/LICENSE

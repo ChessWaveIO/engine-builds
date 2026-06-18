@@ -1,0 +1,34 @@
+id: nalwald
+name: Nalwald
+engine: Nalwald-19-linux-amd64
+author: tsoj
+version: '19'
+elo: 3300
+style: Balanced
+description: UCI chess engine written in Nim.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: Open source; audit upstream license
+homepage: https://github.com/tsoj/Nalwald
+source_repo: https://github.com/tsoj/Nalwald
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: Nalwald-19-linux-amd64
+  windows-x86_64:
+    engine: Nalwald-19-windows-amd64.exe
+release_assets:
+  linux-x86_64:
+    url: https://github.com/tsoj/Nalwald/releases/download/19/Nalwald-19-linux-amd64
+  windows-x86_64:
+    url: https://github.com/tsoj/Nalwald/releases/download/19/Nalwald-19-windows-amd64.exe
+compliance:
+  source_ref: '19'
+  license_url: https://raw.githubusercontent.com/tsoj/Nalwald/master/LICENSE

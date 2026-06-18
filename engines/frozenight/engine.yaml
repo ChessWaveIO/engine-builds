@@ -1,0 +1,34 @@
+id: frozenight
+name: Frozenight
+engine: frozenight-6.0.0-linux-x86-64-v2
+author: MinusKelvin
+version: 6.0.0
+elo: 3300
+style: Balanced
+description: UCI chess engine with NNUE evaluation.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: Open source; audit upstream license
+homepage: https://github.com/MinusKelvin/frozenight
+source_repo: https://github.com/MinusKelvin/frozenight
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: frozenight-6.0.0-linux-x86-64-v2
+  windows-x86_64:
+    engine: frozenight-6.0.0-windows-x86-64-v2.exe
+release_assets:
+  linux-x86_64:
+    url: https://github.com/MinusKelvin/frozenight/releases/download/v6.0.0/frozenight-6.0.0-linux-x86-64-v2
+  windows-x86_64:
+    url: https://github.com/MinusKelvin/frozenight/releases/download/v6.0.0/frozenight-6.0.0-windows-x86-64-v2.exe
+compliance:
+  source_ref: v6.0.0
+  license_url: https://raw.githubusercontent.com/MinusKelvin/frozenight/master/LICENSE

@@ -1,0 +1,50 @@
+id: leorik
+name: Leorik
+engine: Leorik-3.2.1
+author: Thomas Jahn
+version: 3.2.1
+elo: 3200
+style: Balanced
+description: UCI chess engine written in C#.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: MIT
+homepage: https://github.com/lithander/Leorik
+source_repo: https://github.com/lithander/Leorik
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: Leorik-3.2.1
+  macos-silicon:
+    engine: Leorik-3.2.1
+  windows-x86_64:
+    engine: Leorik-3.2.1.exe
+release_assets:
+  linux-x86_64:
+    url: https://github.com/lithander/Leorik/releases/download/3.2/Leorik.3.2.Linux.zip
+    path: Leorik 3.2 Linux/Leorik-3.2.1
+    extra_paths:
+    - path: Leorik 3.2 Linux/640HL-S-5io8-6116M-FRCv1.nnue
+      name: 640HL-S-5io8-6116M-FRCv1.nnue
+  macos-silicon:
+    url: https://github.com/lithander/Leorik/releases/download/3.2/Leorik.3.2.macOS.ARM.zip
+    path: Leorik 3.2 macOS ARM/Leorik-3.2.1
+    extra_paths:
+    - path: Leorik 3.2 macOS ARM/640HL-S-5io8-6116M-FRCv1.nnue
+      name: 640HL-S-5io8-6116M-FRCv1.nnue
+  windows-x86_64:
+    url: https://github.com/lithander/Leorik/releases/download/3.2/Leorik.3.2.Windows.zip
+    path: Leorik 3.2 Windows/Leorik-3.2.1.exe
+    extra_paths:
+    - path: Leorik 3.2 Windows/640HL-S-5io8-6116M-FRCv1.nnue
+      name: 640HL-S-5io8-6116M-FRCv1.nnue
+compliance:
+  source_ref: '3.2'
+  license_url: https://raw.githubusercontent.com/lithander/Leorik/master/LICENSE

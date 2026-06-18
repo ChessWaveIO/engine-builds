@@ -1,0 +1,43 @@
+FROM debian:bookworm AS build
+
+ARG LC0_REF=v0.32.1
+ARG LC0_BACKEND=cpu
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+      ca-certificates \
+      curl \
+      git \
+      g++ \
+      meson \
+      ninja-build \
+      pkg-config \
+      libeigen3-dev \
+      libopenblas-dev \
+      zlib1g-dev \
+      ocl-icd-opencl-dev \
+      opencl-headers \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN git clone --depth 1 --branch "$LC0_REF" https://github.com/LeelaChessZero/lc0.git /src/lc0
+
+WORKDIR /src/lc0
+
+RUN set -eux; \
+    case "$LC0_BACKEND" in \
+      cpu) backend_args="-Dopenblas=true -Dblas=true -Dopencl=false -Donnx=false -Dnative_arch=false -Dispc=false -Dgtest=false" ;; \
+      gpu) backend_args="-Dopenblas=true -Dblas=true -Dopencl=true -Donnx=false -Dnative_arch=false -Dispc=false -Dgtest=false" ;; \
+      *) echo "Unknown LC0_BACKEND=$LC0_BACKEND" >&2; exit 2 ;; \
+    esac; \
+    ./build.sh release $backend_args
+
+RUN set -eux; \
+    mkdir -p /out; \
+    cp build/release/lc0 /out/lc0; \
+    cp COPYING /out/LICENSE; \
+    printf 'Repository: https://github.com/LeelaChessZero/lc0\nSource ref: %s\nBackend profile: %s\n' "$LC0_REF" "$LC0_BACKEND" > /out/UPSTREAM.txt
+
+FROM scratch AS export
+COPY --from=build /out/ /

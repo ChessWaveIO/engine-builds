@@ -1,0 +1,44 @@
+id: arasan
+name: Arasan
+engine: arasanx-64-modern
+author: Jon Dart
+version: '25.3'
+elo: 3400
+style: Balanced
+description: Long-running UCI/CECP chess engine.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: MIT
+homepage: https://www.arasanchess.org/
+source_repo: https://github.com/jdart1/arasan-chess
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: arasanx-64-modern
+  windows-x86_64:
+    engine: arasanx-64-modern.exe
+release_assets:
+  linux-x86_64:
+    url: https://arasanchess.org/arasan-linux-binaries-25.3.tar.gz
+    path: arasan25.3/arasanx-64-modern
+    extra_paths:
+    - path: arasan25.3/arasanv5-20251222.nnue
+      name: arasanv5-20251222.nnue
+    - path: arasan25.3/book.bin
+      name: book.bin
+  windows-x86_64:
+    url: https://arasanchess.org/arasan25.3.zip
+    path: arasanx-64-modern.exe
+    extra_paths:
+    - arasanv5-20251222.nnue
+    - book.bin
+compliance:
+  source_ref: '25.3'
+  license_url: https://raw.githubusercontent.com/jdart1/arasan-chess/master/LICENSE

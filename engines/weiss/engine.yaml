@@ -1,0 +1,31 @@
+id: weiss
+name: Weiss
+engine: weiss-popcnt.exe
+author: Terje Kirstihagen
+version: '2.0'
+elo: 3300
+style: Balanced
+description: UCI chess engine written in C.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/TerjeKir/weiss
+source_repo: https://github.com/TerjeKir/weiss
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  windows-x86_64:
+    engine: weiss-popcnt.exe
+release_assets:
+  windows-x86_64:
+    url: https://github.com/TerjeKir/weiss/releases/download/v2.0/Weiss-2.0-windows-collection.zip
+    path: weiss-popcnt.exe
+compliance:
+  source_ref: v2.0
+  license_url: https://raw.githubusercontent.com/TerjeKir/weiss/master/LICENSE

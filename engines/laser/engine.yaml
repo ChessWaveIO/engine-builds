@@ -1,0 +1,30 @@
+id: laser
+name: Laser
+engine: Laser-1_7.exe
+author: Jeffrey An, Michael An
+version: '1.7'
+elo: 3200
+style: Balanced
+description: UCI-compliant chess engine.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/jeffreyan11/laser-chess-engine
+source_repo: https://github.com/jeffreyan11/laser-chess-engine
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  windows-x86_64:
+    engine: Laser-1_7.exe
+release_assets:
+  windows-x86_64:
+    url: https://github.com/jeffreyan11/laser-chess-engine/releases/download/v1.7/Laser-1_7.exe
+compliance:
+  source_ref: v1.7
+  license_url: https://raw.githubusercontent.com/jeffreyan11/laser-chess-engine/master/LICENSE

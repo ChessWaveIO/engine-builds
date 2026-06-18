@@ -1,0 +1,30 @@
+id: peacekeeper
+name: Peacekeeper
+engine: peacekeeper-301-popcnt.exe
+author: Sazgr
+version: '3.01'
+elo: 3400
+style: Balanced
+description: Strong UCI chess engine written in C++17.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/Sazgr/peacekeeper
+source_repo: https://github.com/Sazgr/peacekeeper
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  windows-x86_64:
+    engine: peacekeeper-301-popcnt.exe
+release_assets:
+  windows-x86_64:
+    url: https://github.com/Sazgr/peacekeeper/releases/download/v3.01/peacekeeper-301-popcnt.exe
+compliance:
+  source_ref: v3.01
+  license_url: https://raw.githubusercontent.com/Sazgr/peacekeeper/main/LICENSE

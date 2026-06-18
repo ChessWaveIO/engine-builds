@@ -1,0 +1,244 @@
+engines:
+- rank: 1
+  engine: Stockfish
+  id: stockfish
+  csv_license_status: GPL-3
+  status: existing_build
+- rank: 2
+  engine: Berserk
+  id: berserk
+  csv_license_status: GPL-3
+  status: release_import_added
+- rank: 3
+  engine: Caissa
+  id: caissa
+  csv_license_status: Open source; audit license
+  status: existing_build
+- rank: 4
+  engine: Viridithas
+  id: viridithas
+  csv_license_status: Open source; audit license
+  status: existing_build
+- rank: 5
+  engine: Starzix
+  id: starzix
+  csv_license_status: WTFPL/permissive
+  status: release_import_added
+- rank: 6
+  engine: Clover
+  id: clover
+  csv_license_status: Open source; audit license
+  status: existing_build
+- rank: 7
+  engine: Motor
+  id: motor
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 8
+  engine: Stormphrax
+  id: stormphrax
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 9
+  engine: Seer
+  id: seer
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 10
+  engine: Ethereal
+  id: ethereal
+  csv_license_status: GNU GPL
+  status: existing_build
+- rank: 11
+  engine: Koivisto
+  id: koivisto
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 12
+  engine: RubiChess
+  id: rubichess
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 13
+  engine: Igel
+  id: igel
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 14
+  engine: Arasan
+  id: arasan
+  csv_license_status: MIT/permissive likely
+  status: release_import_added
+- rank: 15
+  engine: Obsidian
+  id: obsidian
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 16
+  engine: Clarity
+  id: clarity
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 17
+  engine: Peacekeeper
+  id: peacekeeper
+  csv_license_status: GPL-3
+  status: release_import_added
+- rank: 19
+  engine: akimbo
+  id: akimbo
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 20
+  engine: Equisetum
+  id: equisetum
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 21
+  engine: Renegade
+  id: renegade
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 22
+  engine: Carp
+  id: carp
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 23
+  engine: Willow
+  id: willow
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 24
+  engine: Serendipity
+  id: serendipity
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 25
+  engine: Rice
+  id: rice
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 26
+  engine: chess.cpp
+  id: chess-cpp
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 28
+  engine: Smallbrain
+  id: smallbrain
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 29
+  engine: BlackCore
+  id: blackcore
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 30
+  engine: Pedantic
+  id: pedantic
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 31
+  engine: Sirius
+  id: sirius
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 32
+  engine: Avalanche
+  id: avalanche
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 33
+  engine: Stash
+  id: stash
+  csv_license_status: Open source; audit license
+  status: pending_unavailable_release_asset
+  notes: GitLab release upload links currently redirect to sign-in, so they are not usable by unattended CI.
+- rank: 34
+  engine: Nalwald
+  id: nalwald
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 35
+  engine: Frozenight
+  id: frozenight
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 36
+  engine: Weiss
+  id: weiss
+  csv_license_status: MIT/permissive likely
+  status: release_import_added
+- rank: 37
+  engine: Drofa
+  id: drofa
+  csv_license_status: MIT/permissive likely
+  status: release_import_added
+- rank: 38
+  engine: Svart
+  id: svart
+  csv_license_status: Open source; audit license
+  status: pending_unavailable_release_asset
+  notes: Previously referenced GitHub repository crippa1337/svart currently returns 404.
+- rank: 39
+  engine: Leorik
+  id: leorik
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 40
+  engine: Princhess
+  id: princhess
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 41
+  engine: Wahoo
+  id: wahoo
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 42
+  engine: Polaris
+  id: polaris
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 43
+  engine: Cheers
+  id: cheers
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 44
+  engine: Monty
+  id: monty
+  csv_license_status: Open source; audit license
+  status: release_import_added
+- rank: 45
+  engine: Minic
+  id: minic
+  csv_license_status: GPL-family likely
+  status: release_import_added
+- rank: 46
+  engine: Marvin
+  id: marvin
+  csv_license_status: GPL-family likely
+  status: release_import_added
+- rank: 47
+  engine: Texel
+  id: texel
+  csv_license_status: GPL-family likely
+  status: release_import_added
+- rank: 48
+  engine: Laser
+  id: laser
+  csv_license_status: GPL-family likely
+  status: release_import_added
+- rank: 49
+  engine: Nemorino
+  id: nemorino
+  csv_license_status: GPL-family likely
+  status: pending_unavailable_release_asset
+  notes: Upstream is Bitbucket/source oriented; no current unattended Linux, Windows, or macOS release asset was found.
+- rank: 50
+  engine: CuckooChess
+  id: cuckoochess
+  csv_license_status: GPL-3
+  status: release_import_added

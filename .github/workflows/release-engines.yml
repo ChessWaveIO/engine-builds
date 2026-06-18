@@ -1,0 +1,330 @@
+name: Release engines
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g. v1.2.3)'
+        required: true
+        default: v1.0.0
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        engine:
+          - caissa
+          - clover
+          - ethereal
+          - patricia
+          - stockfish-16
+          - stockfish-17
+          - stockfish-18
+          - viridithas
+        platform:
+          - linux-x86_64
+          - macos-silicon
+        include:
+          - engine: caissa
+            platform: windows-x86_64
+          - engine: patricia
+            platform: windows-x86_64
+          - engine: stockfish-16
+            platform: windows-x86_64
+          - engine: stockfish-17
+            platform: windows-x86_64
+          - engine: stockfish-18
+            platform: windows-x86_64
+          - engine: berserk
+            platform: windows-x86_64
+          - engine: berserk
+            platform: linux-x86_64
+          - engine: starzix
+            platform: linux-x86_64
+          - engine: starzix
+            platform: windows-x86_64
+          - engine: motor
+            platform: windows-x86_64
+          - engine: stormphrax
+            platform: linux-x86_64
+          - engine: stormphrax
+            platform: windows-x86_64
+          - engine: seer
+            platform: windows-x86_64
+          - engine: koivisto
+            platform: linux-x86_64
+          - engine: koivisto
+            platform: windows-x86_64
+          - engine: rubichess
+            platform: linux-x86_64
+          - engine: rubichess
+            platform: windows-x86_64
+          - engine: igel
+            platform: windows-x86_64
+          - engine: obsidian
+            platform: windows-x86_64
+          - engine: obsidian
+            platform: linux-x86_64
+          - engine: akimbo
+            platform: linux-x86_64
+          - engine: akimbo
+            platform: windows-x86_64
+          - engine: equisetum
+            platform: windows-x86_64
+          - engine: renegade
+            platform: linux-x86_64
+          - engine: renegade
+            platform: windows-x86_64
+          - engine: carp
+            platform: linux-x86_64
+          - engine: carp
+            platform: windows-x86_64
+          - engine: serendipity
+            platform: windows-x86_64
+          - engine: rice
+            platform: windows-x86_64
+          - engine: drofa
+            platform: windows-x86_64
+          - engine: clarity
+            platform: windows-x86_64
+          - engine: peacekeeper
+            platform: windows-x86_64
+          - engine: blackcore
+            platform: linux-x86_64
+          - engine: blackcore
+            platform: windows-x86_64
+          - engine: pedantic
+            platform: windows-x86_64
+          - engine: sirius
+            platform: linux-x86_64
+          - engine: sirius
+            platform: windows-x86_64
+          - engine: avalanche
+            platform: linux-x86_64
+          - engine: avalanche
+            platform: macos-silicon
+          - engine: avalanche
+            platform: windows-x86_64
+          - engine: nalwald
+            platform: linux-x86_64
+          - engine: nalwald
+            platform: windows-x86_64
+          - engine: leorik
+            platform: linux-x86_64
+          - engine: leorik
+            platform: macos-silicon
+          - engine: leorik
+            platform: windows-x86_64
+          - engine: wahoo
+            platform: linux-x86_64
+          - engine: wahoo
+            platform: windows-x86_64
+          - engine: polaris
+            platform: windows-x86_64
+          - engine: cheers
+            platform: linux-x86_64
+          - engine: cheers
+            platform: windows-x86_64
+          - engine: princhess
+            platform: linux-x86_64
+          - engine: princhess
+            platform: windows-x86_64
+          - engine: marvin
+            platform: linux-x86_64
+          - engine: marvin
+            platform: windows-x86_64
+          - engine: frozenight
+            platform: linux-x86_64
+          - engine: frozenight
+            platform: windows-x86_64
+          - engine: monty
+            platform: windows-x86_64
+          - engine: arasan
+            platform: linux-x86_64
+          - engine: arasan
+            platform: windows-x86_64
+          - engine: willow
+            platform: linux-x86_64
+          - engine: willow
+            platform: windows-x86_64
+          - engine: chess-cpp
+            platform: linux-x86_64
+          - engine: chess-cpp
+            platform: windows-x86_64
+          - engine: smallbrain
+            platform: windows-x86_64
+          - engine: weiss
+            platform: windows-x86_64
+          - engine: minic
+            platform: linux-x86_64
+          - engine: minic
+            platform: windows-x86_64
+          - engine: texel
+            platform: linux-x86_64
+          - engine: texel
+            platform: windows-x86_64
+          - engine: laser
+            platform: windows-x86_64
+          - engine: cuckoochess
+            platform: linux-x86_64
+          - engine: cuckoochess
+            platform: macos-silicon
+          - engine: cuckoochess
+            platform: windows-x86_64
+          - engine: lc0-cpu
+            platform: linux-x86_64
+          - engine: lc0-cpu
+            platform: macos-silicon
+          - engine: lc0-cpu
+            platform: windows-x86_64
+          - engine: lc0-gpu
+            platform: linux-x86_64
+          - engine: lc0-gpu
+            platform: macos-silicon
+          - engine: lc0-gpu
+            platform: windows-x86_64
+          - engine: maia-1100-cpu
+            platform: linux-x86_64
+          - engine: maia-1100-cpu
+            platform: macos-silicon
+          - engine: maia-1100-cpu
+            platform: windows-x86_64
+          - engine: maia-1100-gpu
+            platform: linux-x86_64
+          - engine: maia-1100-gpu
+            platform: macos-silicon
+          - engine: maia-1100-gpu
+            platform: windows-x86_64
+          - engine: maia-1500-cpu
+            platform: linux-x86_64
+          - engine: maia-1500-cpu
+            platform: macos-silicon
+          - engine: maia-1500-cpu
+            platform: windows-x86_64
+          - engine: maia-1500-gpu
+            platform: linux-x86_64
+          - engine: maia-1500-gpu
+            platform: macos-silicon
+          - engine: maia-1500-gpu
+            platform: windows-x86_64
+          - engine: maia-1900-cpu
+            platform: linux-x86_64
+          - engine: maia-1900-cpu
+            platform: macos-silicon
+          - engine: maia-1900-cpu
+            platform: windows-x86_64
+          - engine: maia-1900-gpu
+            platform: linux-x86_64
+          - engine: maia-1900-gpu
+            platform: macos-silicon
+          - engine: maia-1900-gpu
+            platform: windows-x86_64
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: version
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "value=${{ github.event.inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Free runner disk space
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo rm -rf /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+          docker system prune -af || true
+          df -h
+
+      - name: Build or download engine
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          bash scripts/build_one.sh "${{ matrix.engine }}" "${{ matrix.platform }}" "${{ steps.version.outputs.value }}"
+
+      - name: Verify packaged engine contents
+        shell: bash
+        run: |
+          set -euo pipefail
+          DEST="out/${{ steps.version.outputs.value }}/${{ matrix.platform }}/${{ matrix.engine }}"
+          test -f "$DEST/engine.yaml"
+          if [[ -z "$(find "$DEST" -maxdepth 1 -type f ! -name '*.yaml' -print -quit)" ]]; then
+            echo "No built or downloaded artifacts found in $DEST" >&2
+            ls -la "$DEST" >&2 || true
+            exit 1
+          fi
+
+      - name: Package engine artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION="${{ steps.version.outputs.value }}"
+          ENGINE="${{ matrix.engine }}"
+          PLATFORM="${{ matrix.platform }}"
+          mkdir -p dist
+          (
+            cd "out/${VERSION}/${PLATFORM}/${ENGINE}"
+            mapfile -d '' entries < <(find . -mindepth 1 -maxdepth 1 -printf '%P\0' | sort -z)
+            tar -czf "$GITHUB_WORKSPACE/dist/${ENGINE}-${PLATFORM}.tar.gz" "${entries[@]}"
+          )
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.engine }}-${{ matrix.platform }}
+          path: dist/*.tar.gz
+
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: version
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "value=${{ github.event.inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Download all engine artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release-artifacts
+
+      - name: Create checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          find release-artifacts -name '*.tar.gz' -type f -print0 | sort -z | xargs -0 sha256sum > release-artifacts/SHA256SUMS
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.value }}
+          name: ${{ steps.version.outputs.value }}
+          files: |
+            release-artifacts/**/*.tar.gz
+            release-artifacts/SHA256SUMS
+          generate_release_notes: true

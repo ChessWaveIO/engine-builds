@@ -1,0 +1,46 @@
+id: marvin
+name: Marvin
+engine: marvin_x86_64_modern
+author: Martin Danielsson
+version: 6.3.0
+elo: 3200
+style: Balanced
+description: UCI/XBoard compatible chess engine.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/bmdanielsson/marvin-chess
+source_repo: https://github.com/bmdanielsson/marvin-chess
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: marvin_x86_64_modern
+  windows-x86_64:
+    engine: marvin_x86_64_modern.exe
+release_assets:
+  linux-x86_64:
+    url: https://github.com/bmdanielsson/marvin-chess/releases/download/v6.3.0/marvin_6.3.0_binaries.zip
+    path: marvin_6.3.0_binaries/linux/marvin_x86_64_modern
+    extra_paths:
+    - path: marvin_6.3.0_binaries/book.bin
+      name: book.bin
+    - path: marvin_6.3.0_binaries/marvin.ini
+      name: marvin.ini
+  windows-x86_64:
+    url: https://github.com/bmdanielsson/marvin-chess/releases/download/v6.3.0/marvin_6.3.0_binaries.zip
+    path: marvin_6.3.0_binaries/windows/marvin_x86_64_modern.exe
+    extra_paths:
+    - path: marvin_6.3.0_binaries/book.bin
+      name: book.bin
+    - path: marvin_6.3.0_binaries/marvin.ini
+      name: marvin.ini
+compliance:
+  source_ref: v6.3.0
+  license_url: https://raw.githubusercontent.com/bmdanielsson/marvin-chess/master/LICENSE

@@ -1,0 +1,47 @@
+id: maia-1100-cpu
+name: Maia 1100 CPU
+engine: lc0
+author: CSSLab, Leela Chess Zero developers
+version: Maia weights + LCZero 0.32.1
+elo: 1100
+style: Human-like
+description: Maia 1100 human-like neural network packaged with the LCZero CPU runtime.
+uci_options:
+  WeightsFile: maia-1100.pb.gz
+  Threads: 4
+  Ponder: false
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/CSSLab/maia-chess
+source_repo: https://github.com/CSSLab/maia-chess
+icon: ''
+banner: ''
+recommended_for:
+- Human-like Play
+- Training
+platforms:
+  linux-x86_64:
+    engine: lc0
+  macos-silicon:
+    engine: lc0
+  windows-x86_64:
+    engine: lc0.exe
+release_assets:
+  macos-silicon:
+    url: https://github.com/LeelaChessZero/lc0/releases/download/v0.32.0/lc0-v0.32.0-macos_12.6.1
+    local_extra_paths:
+    - path: weights/maia/maia-1100.pb.gz
+      name: maia-1100.pb.gz
+  windows-x86_64:
+    url: https://github.com/LeelaChessZero/lc0/releases/download/v0.32.1/lc0-v0.32.1-windows-cpu-dnnl.zip
+    path: lc0.exe
+    extra_paths:
+      - dnnl.dll
+      - mimalloc-override.dll
+      - mimalloc-redirect.dll
+    local_extra_paths:
+    - path: weights/maia/maia-1100.pb.gz
+      name: maia-1100.pb.gz
+compliance:
+  source_ref: maia-chess master, lc0 v0.32.1
+  license_url: https://raw.githubusercontent.com/CSSLab/maia-chess/master/LICENSE

@@ -1,0 +1,30 @@
+id: serendipity
+name: Serendipity
+engine: Serendipity-1.0.exe
+author: Shawn Xu
+version: '1.0'
+elo: 3500
+style: Balanced
+description: Java chess engine.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: AGPL-3.0
+homepage: https://github.com/xu-shawn/Serendipity
+source_repo: https://github.com/xu-shawn/Serendipity
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  windows-x86_64:
+    engine: Serendipity-1.0.exe
+release_assets:
+  windows-x86_64:
+    url: https://github.com/xu-shawn/Serendipity/releases/download/v1.0/Serendipity-1.0.exe
+compliance:
+  source_ref: v1.0
+  license_url: https://raw.githubusercontent.com/xu-shawn/Serendipity/master/LICENSE

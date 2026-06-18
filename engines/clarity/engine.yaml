@@ -1,0 +1,30 @@
+id: clarity
+name: Clarity
+engine: Clarity_8.0.0_x86-64-v2.exe
+author: Vast342
+version: 8.0.0
+elo: 3400
+style: Balanced
+description: UCI chess engine with NNUE evaluation.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/Vast342/Clarity
+source_repo: https://github.com/Vast342/Clarity
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  windows-x86_64:
+    engine: Clarity_8.0.0_x86-64-v2.exe
+release_assets:
+  windows-x86_64:
+    url: https://github.com/Vast342/Clarity/releases/download/V8.0.0/Clarity_8.0.0_x86-64-v2.exe
+compliance:
+  source_ref: V8.0.0
+  license_url: https://raw.githubusercontent.com/Vast342/Clarity/main/LICENSE

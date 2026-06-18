@@ -1,0 +1,27 @@
+# syntax=docker/dockerfile:1.6
+FROM ghcr.io/shepherdjerred/macos-cross-compiler:latest AS builder
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+RUN mkdir -p /tmp && chmod 1777 /tmp
+ARG PAT_REPO=https://github.com/Adam-Kulju/Patricia
+ARG PAT_REF=main
+ARG PAT_BIN_NAME=patricia
+
+RUN apt-get update && apt-get install -y --no-install-recommends git make file && rm -rf /var/lib/apt/lists/*
+WORKDIR /src
+RUN set -euo pipefail; \
+    git clone --depth 1 --branch "${PAT_REF}" "${PAT_REPO}" . || { \
+      git clone "${PAT_REPO}" .; \
+      git checkout --force "${PAT_REF}"; \
+    }
+RUN git rev-parse HEAD > /src/PATRICIA_COMMIT.txt
+WORKDIR /src/engine
+RUN sed -i -E 's/-march=[^[:space:]]+//g' Makefile && \
+    make -B -j"$(nproc)" CXX=oa64-clang++ CC=oa64-clang && \
+    cp "./${PAT_BIN_NAME}" /src/patricia-macos-arm64 && \
+    chmod 0755 /src/patricia-macos-arm64 && \
+    file /src/patricia-macos-arm64
+
+FROM scratch AS export
+COPY --from=builder /src/patricia-macos-arm64 /patricia-macos-arm64
+COPY --from=builder /src/PATRICIA_COMMIT.txt /PATRICIA_COMMIT.txt

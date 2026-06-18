@@ -1,0 +1,54 @@
+SHELL := /bin/bash
+
+OUT ?= ../../out/v1.0.0/linux-x86_64/$(ENGINE)
+LC0_REF ?= v0.32.1
+LC0_BACKEND ?= cpu
+LC0_WEIGHT ?=
+LC0_WEIGHT_OUT ?= $(notdir $(LC0_WEIGHT))
+
+.PHONY: prep linux linux-nocache macos-silicon windows clean copy-weight
+
+prep:
+	@mkdir -p "$(OUT)"
+
+copy-weight:
+	@if [[ -n "$(LC0_WEIGHT)" ]]; then \
+		cp "../../$(LC0_WEIGHT)" "$(OUT)/$(LC0_WEIGHT_OUT)"; \
+	fi
+
+linux: prep
+	@set -euo pipefail; \
+	img="$$(docker build -q --target export -f ../Dockerfile.lc0 \
+		--build-arg LC0_REF="$(LC0_REF)" \
+		--build-arg LC0_BACKEND="$(LC0_BACKEND)" \
+		.. | tail -n1)"; \
+	cid="$$(docker create "$$img" /bin/true)"; \
+	docker cp "$$cid:/lc0" "$(OUT)/lc0"; \
+	docker cp "$$cid:/LICENSE" "$(OUT)/LICENSE" 2>/dev/null || true; \
+	docker cp "$$cid:/UPSTREAM.txt" "$(OUT)/UPSTREAM.txt"; \
+	docker rm "$$cid" >/dev/null; \
+	chmod 0755 "$(OUT)/lc0"
+	@$(MAKE) copy-weight OUT="$(OUT)" LC0_WEIGHT="$(LC0_WEIGHT)" LC0_WEIGHT_OUT="$(LC0_WEIGHT_OUT)"
+
+linux-nocache: prep
+	@set -euo pipefail; \
+	img="$$(docker build --no-cache -q --target export -f ../Dockerfile.lc0 \
+		--build-arg LC0_REF="$(LC0_REF)" \
+		--build-arg LC0_BACKEND="$(LC0_BACKEND)" \
+		.. | tail -n1)"; \
+	cid="$$(docker create "$$img" /bin/true)"; \
+	docker cp "$$cid:/lc0" "$(OUT)/lc0"; \
+	docker cp "$$cid:/LICENSE" "$(OUT)/LICENSE" 2>/dev/null || true; \
+	docker cp "$$cid:/UPSTREAM.txt" "$(OUT)/UPSTREAM.txt"; \
+	docker rm "$$cid" >/dev/null; \
+	chmod 0755 "$(OUT)/lc0"
+	@$(MAKE) copy-weight OUT="$(OUT)" LC0_WEIGHT="$(LC0_WEIGHT)" LC0_WEIGHT_OUT="$(LC0_WEIGHT_OUT)"
+
+macos-silicon: prep
+	@bash ../../scripts/import_release_asset.sh "$(ENGINE)" macos-silicon "$(OUT)"
+
+windows: prep
+	@bash ../../scripts/import_release_asset.sh "$(ENGINE)" windows-x86_64 "$(OUT)"
+
+clean:
+	@rm -rf "$(OUT)"

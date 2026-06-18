@@ -1,0 +1,27 @@
+id: patricia
+name: Patricia
+engine: patricia-linux-x86_64
+author: Adam Kulju
+version: "5"
+elo: 3400
+style: Hyper Aggressive
+description: Super aggressive UCI chess engine.
+uci_options:
+  Threads: 4
+  Ponder: false
+  MultiPV: 1
+license: MIT
+homepage: https://github.com/Adam-Kulju/Patricia
+source_repo: https://github.com/Adam-Kulju/Patricia
+icon: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/patricia/image.jpg
+banner: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/patricia/image.jpg
+recommended_for:
+  - Advanced
+  - Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: patricia-linux-x86_64
+  macos-silicon:
+    engine: patricia
+  windows-x86_64:
+    engine: patricia-windows-avx512.exe

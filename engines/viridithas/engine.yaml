@@ -1,0 +1,30 @@
+id: viridithas
+name: Viridithas
+engine: viridithas-linux-x86_64
+author: Cosmo Bobak
+version: "15.0.0"
+elo: 3572
+style: Tactical
+description: Strong Rust UCI chess engine with NNUE evaluation.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ""
+  MultiPV: 1
+license: MIT
+homepage: https://github.com/cosmobobak/viridithas
+source_repo: https://github.com/cosmobobak/viridithas
+icon: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/viridithas/image.jpg
+banner: https://raw.githubusercontent.com/ChessWaveIO/chesswave-link-engines/main/engines/viridithas/image.jpg
+recommended_for:
+  - Advanced
+  - Engine Tournaments
+platforms:
+  linux-x86_64:
+    engine: viridithas-linux-x86_64
+    required_files:
+      - viridithas.nnue.zst
+  macos-silicon:
+    engine: viridithas
+    required_files:
+      - viridithas.nnue.zst

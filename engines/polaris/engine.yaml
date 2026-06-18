@@ -1,0 +1,30 @@
+id: polaris
+name: Polaris
+engine: polaris-1.8.1-popcnt.exe
+author: Ciekce
+version: 1.8.1
+elo: 3023
+style: Balanced
+description: UCI chess engine written in C++20.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/Ciekce/Polaris
+source_repo: https://github.com/Ciekce/Polaris
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  windows-x86_64:
+    engine: polaris-1.8.1-popcnt.exe
+release_assets:
+  windows-x86_64:
+    url: https://github.com/Ciekce/Polaris/releases/download/v1.8.1/polaris-1.8.1-popcnt.exe
+compliance:
+  source_ref: v1.8.1
+  license_url: https://raw.githubusercontent.com/Ciekce/Polaris/main/LICENSE

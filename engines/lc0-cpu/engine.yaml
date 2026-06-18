@@ -1,0 +1,47 @@
+id: lc0-cpu
+name: LCZero CPU
+engine: lc0
+author: Leela Chess Zero developers
+version: 0.32.1
+elo: 3200
+style: Neural Network
+description: LCZero CPU package using the small official T1 256x10 network.
+uci_options:
+  WeightsFile: t1-256x10-distilled-swa-2432500.pb.gz
+  Threads: 4
+  Ponder: false
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://lczero.org/
+source_repo: https://github.com/LeelaChessZero/lc0
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Analysis
+platforms:
+  linux-x86_64:
+    engine: lc0
+  macos-silicon:
+    engine: lc0
+  windows-x86_64:
+    engine: lc0.exe
+release_assets:
+  macos-silicon:
+    url: https://github.com/LeelaChessZero/lc0/releases/download/v0.32.0/lc0-v0.32.0-macos_12.6.1
+    local_extra_paths:
+    - path: weights/lc0/t1-256x10-distilled-swa-2432500.pb.gz
+      name: t1-256x10-distilled-swa-2432500.pb.gz
+  windows-x86_64:
+    url: https://github.com/LeelaChessZero/lc0/releases/download/v0.32.1/lc0-v0.32.1-windows-cpu-dnnl.zip
+    path: lc0.exe
+    extra_paths:
+      - dnnl.dll
+      - mimalloc-override.dll
+      - mimalloc-redirect.dll
+    local_extra_paths:
+    - path: weights/lc0/t1-256x10-distilled-swa-2432500.pb.gz
+      name: t1-256x10-distilled-swa-2432500.pb.gz
+compliance:
+  source_ref: v0.32.1
+  license_url: https://raw.githubusercontent.com/LeelaChessZero/lc0/master/COPYING

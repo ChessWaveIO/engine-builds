@@ -1,0 +1,33 @@
+id: smallbrain
+name: Smallbrain
+engine: smallbrain-x86-64.exe
+author: Disservin
+version: 7.0.0
+elo: 3300
+style: Balanced
+description: UCI chess engine written in C++.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/Disservin/Smallbrain
+source_repo: https://github.com/Disservin/Smallbrain
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  windows-x86_64:
+    engine: smallbrain-x86-64.exe
+release_assets:
+  windows-x86_64:
+    url: https://github.com/Disservin/Smallbrain/releases/download/7.0.0/smallbrain-x86-64.exe
+    extra_urls:
+    - url: https://github.com/Disservin/Smallbrain/releases/download/7.0.0/nn-dfb6dafd17fab88-380.nnue
+      name: nn-dfb6dafd17fab88-380.nnue
+compliance:
+  source_ref: 7.0.0
+  license_url: https://raw.githubusercontent.com/Disservin/Smallbrain/main/LICENSE

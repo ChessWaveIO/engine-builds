@@ -1,0 +1,37 @@
+id: pedantic
+name: Pedantic
+engine: Pedantic.exe
+author: JoAnnP38
+version: 0.6.2
+elo: 3300
+style: Balanced
+description: UCI chess engine.
+uci_options:
+  Threads: 4
+  Ponder: false
+  SyzygyPath: ''
+  MultiPV: 1
+license: MIT
+homepage: https://github.com/JoAnnP38/Pedantic
+source_repo: https://github.com/JoAnnP38/Pedantic
+icon: ''
+banner: ''
+recommended_for:
+- Advanced
+- Engine Tournaments
+platforms:
+  windows-x86_64:
+    engine: Pedantic.exe
+release_assets:
+  windows-x86_64:
+    url: https://github.com/JoAnnP38/Pedantic/releases/download/v0.6.2/Pedantic.0.6.2.Win64.zip
+    path: Pedantic.exe
+    extra_paths:
+    - Ijwhost.dll
+    - Pedantic.bin
+    - Pedantic.hce
+    - Pedantic.Tablebase.dll
+    - vcruntime140.dll
+compliance:
+  source_ref: v0.6.2
+  license_url: https://raw.githubusercontent.com/JoAnnP38/Pedantic/master/LICENSE

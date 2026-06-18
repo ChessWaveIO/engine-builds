@@ -1,0 +1,53 @@
+# syntax=docker/dockerfile:1.6
+FROM ghcr.io/shepherdjerred/macos-cross-compiler:latest AS builder
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+RUN mkdir -p /tmp && chmod 1777 /tmp
+ARG CAISSA_REPO=https://github.com/Witek902/Caissa
+ARG CAISSA_REF=master
+
+RUN apt-get update && apt-get install -y --no-install-recommends git cmake make file && rm -rf /var/lib/apt/lists/*
+WORKDIR /src
+RUN set -euo pipefail; \
+    git clone --depth 1 --branch "${CAISSA_REF}" "${CAISSA_REPO}" Caissa || { \
+      git clone "${CAISSA_REPO}" Caissa; \
+      cd Caissa; \
+      git checkout --force "${CAISSA_REF}"; \
+    }
+RUN git -C /src/Caissa rev-parse HEAD > /src/CAISSA_COMMIT.txt
+WORKDIR /src/Caissa
+RUN set -euo pipefail; \
+    find . -name CMakeLists.txt -exec sed -i 's/INTERPROCEDURAL_OPTIMIZATION TRUE/INTERPROCEDURAL_OPTIMIZATION FALSE/g' {} +; \
+    find . -name CMakeLists.txt -exec sed -i 's/ -Werror//g' {} +; \
+    cmake \
+      -S . -B build \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_SYSTEM_NAME=Darwin \
+      -DCMAKE_SYSTEM_PROCESSOR=arm64 \
+      -DCMAKE_OSX_ARCHITECTURES=arm64 \
+      -DTARGET_ARCH=aarch64-neon \
+      -DCMAKE_C_COMPILER=oa64-clang \
+      -DCMAKE_CXX_COMPILER=oa64-clang++ \
+      -DCMAKE_AR=/cctools/bin/arm64-apple-darwin24-ar \
+      -DCMAKE_RANLIB=/cctools/bin/arm64-apple-darwin24-ranlib \
+      -DCMAKE_C_COMPILER_AR=/cctools/bin/arm64-apple-darwin24-ar \
+      -DCMAKE_CXX_COMPILER_AR=/cctools/bin/arm64-apple-darwin24-ar \
+      -DCMAKE_C_COMPILER_RANLIB=/cctools/bin/arm64-apple-darwin24-ranlib \
+      -DCMAKE_CXX_COMPILER_RANLIB=/cctools/bin/arm64-apple-darwin24-ranlib \
+      -DCMAKE_TRY_COMPILE_TARGET_TYPE=STATIC_LIBRARY \
+      -DCMAKE_POLICY_DEFAULT_CMP0069=OLD \
+      -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=FALSE \
+      ; \
+    cmake --build build --parallel "$(nproc)" --target caissa; \
+    test -x /src/Caissa/build/bin/caissa; \
+    net="$(find /src/Caissa/build/bin -maxdepth 1 -type f -name 'eval-*.pnn' | sort | tail -n1)"; \
+    test -s "${net}"; \
+    cp "${net}" /src/caissa.pnn; \
+    basename "${net}" > /src/CAISSA_NET_NAME.txt; \
+    file /src/Caissa/build/bin/caissa; \
+    cp /src/Caissa/build/bin/caissa /src/caissa-macos-arm64
+FROM scratch AS export
+COPY --from=builder /src/caissa-macos-arm64 /caissa-macos-arm64
+COPY --from=builder /src/caissa.pnn /eval-75.pnn
+COPY --from=builder /src/CAISSA_NET_NAME.txt /CAISSA_NET_NAME.txt
+COPY --from=builder /src/CAISSA_COMMIT.txt /CAISSA_COMMIT.txt

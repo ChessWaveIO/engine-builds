@@ -1,0 +1,37 @@
+id: cuckoochess
+name: CuckooChess
+engine: cuckoo-uci-1.12-jar-with-dependencies.jar
+author: Peter Osterlund
+version: '1.12'
+elo: 2583
+style: Balanced
+description: Java UCI chess engine.
+uci_options:
+  Threads: 1
+  Ponder: false
+  MultiPV: 1
+license: GPL-3.0
+homepage: https://github.com/sauce-code/cuckoo
+source_repo: https://github.com/sauce-code/cuckoo
+icon: ''
+banner: ''
+recommended_for:
+- Casual
+- Classic Engines
+platforms:
+  linux-x86_64:
+    engine: cuckoo-uci-1.12-jar-with-dependencies.jar
+  macos-silicon:
+    engine: cuckoo-uci-1.12-jar-with-dependencies.jar
+  windows-x86_64:
+    engine: cuckoo-uci-1.12-jar-with-dependencies.jar
+release_assets:
+  linux-x86_64:
+    url: https://github.com/sauce-code/cuckoo/releases/download/1.12/cuckoo-uci-1.12-jar-with-dependencies.jar
+  macos-silicon:
+    url: https://github.com/sauce-code/cuckoo/releases/download/1.12/cuckoo-uci-1.12-jar-with-dependencies.jar
+  windows-x86_64:
+    url: https://github.com/sauce-code/cuckoo/releases/download/1.12/cuckoo-uci-1.12-jar-with-dependencies.jar
+compliance:
+  source_ref: '1.12'
+  license_url: https://raw.githubusercontent.com/sauce-code/cuckoo/master/LICENSE
