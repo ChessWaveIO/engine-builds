@@ -298,6 +298,10 @@ jobs:
   release:
     runs-on: ubuntu-latest
     needs: build
+    # Publish whatever built successfully even if some engine/platform matrix
+    # entries failed — a single broken engine should not block the whole
+    # release. Failed jobs still show red so they can be fixed incrementally.
+    if: ${{ !cancelled() }}
 
     steps:
       - name: Checkout
