@@ -32,6 +32,11 @@ jobs:
         platform:
           - linux-x86_64
           - macos-silicon
+        exclude:
+          # Viridithas ships no macOS binary upstream and can't be cross-built
+          # on the Linux runner, so skip its macOS target.
+          - engine: viridithas
+            platform: macos-silicon
         include:
           - engine: caissa
             platform: windows-x86_64
