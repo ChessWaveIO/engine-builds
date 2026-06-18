@@ -1,5 +1,8 @@
 id: stockfish
 name: Stockfish
+# Published release assets are versioned (stockfish-18-<platform>.tar.gz), so the
+# relay's asset basename must include the version even though the engine id is "stockfish".
+release_name: stockfish-18
 engine: stockfish-18-linux-x86_64
 author: T. Romstad, M. Costalba, J. Kiiski, G. Linscott
 version: "18"
