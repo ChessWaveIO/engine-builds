@@ -275,6 +275,15 @@ jobs:
             exit 1
           fi
 
+      - name: Generate engine config.json
+        shell: bash
+        run: |
+          set -euo pipefail
+          DEST="out/${{ steps.version.outputs.value }}/${{ matrix.platform }}/${{ matrix.engine }}"
+          ruby scripts/gen_config_json.rb "$DEST/engine.yaml" "${{ matrix.platform }}" "$DEST/config.json"
+          echo "Generated $DEST/config.json:"
+          cat "$DEST/config.json"
+
       - name: Package engine artifact
         shell: bash
         run: |
