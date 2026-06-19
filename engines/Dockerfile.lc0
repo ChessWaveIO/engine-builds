@@ -35,7 +35,7 @@ RUN set -eux; \
     case "$LC0_BACKEND" in \
       cpu) backend_args="-Dopenblas=true -Dblas=true -Dopencl=false -Donnx=false -Dnative_arch=false -Dispc=false -Dgtest=false" ;; \
       gpu) backend_args="-Dopenblas=true -Dblas=true -Dopencl=true -Donnx=false -Dnative_arch=false -Dispc=false -Dgtest=false" ;; \
-      cuda) backend_args="-Dcudnn=true -Dopencl=false -Donnx=false -Dblas=false -Dnative_arch=false -Dispc=false -Dgtest=false" ;; \
+      cuda) backend_args="-Dplain_cuda=true -Dcudnn=false -Dnative_cuda=false -Dopencl=false -Donnx=false -Dblas=false -Dnative_arch=false -Dispc=false -Dgtest=false" ;; \
       *) echo "Unknown LC0_BACKEND=$LC0_BACKEND" >&2; exit 2 ;; \
     esac; \
     ./build.sh release $backend_args
