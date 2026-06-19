@@ -33,10 +33,12 @@ release_assets:
     - path: weights/maia/maia-1100.pb.gz
       name: maia-1100.pb.gz
   windows-x86_64:
-    url: https://github.com/LeelaChessZero/lc0/releases/download/v0.32.1/lc0-v0.32.1-windows-onnx-dml.zip
+    url: https://github.com/LeelaChessZero/lc0/releases/download/v0.32.1/lc0-v0.32.1-windows-gpu-nvidia-cuda12.zip
     path: lc0.exe
     extra_paths:
-      - onnxruntime.dll
+      - cublas64_12.dll
+      - cublasLt64_12.dll
+      - cudart64_12.dll
       - mimalloc-override.dll
       - mimalloc-redirect.dll
     local_extra_paths:

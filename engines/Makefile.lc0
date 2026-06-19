@@ -6,6 +6,14 @@ LC0_BACKEND ?= cpu
 LC0_WEIGHT ?=
 LC0_WEIGHT_OUT ?= $(notdir $(LC0_WEIGHT))
 
+# Linux build base image. The cuda backend needs the CUDA toolkit + cuDNN headers
+# (compiling does not require a GPU); cpu/gpu(OpenCL) build on plain debian.
+ifeq ($(LC0_BACKEND),cuda)
+LC0_BASE_IMAGE ?= nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
+else
+LC0_BASE_IMAGE ?= debian:bookworm
+endif
+
 .PHONY: prep linux linux-nocache macos-silicon windows clean copy-weight
 
 prep:
@@ -21,6 +29,7 @@ linux: prep
 	img="$$(docker build -q --target export -f ../Dockerfile.lc0 \
 		--build-arg LC0_REF="$(LC0_REF)" \
 		--build-arg LC0_BACKEND="$(LC0_BACKEND)" \
+		--build-arg BASE_IMAGE="$(LC0_BASE_IMAGE)" \
 		.. | tail -n1)"; \
 	cid="$$(docker create "$$img" /bin/true)"; \
 	docker cp "$$cid:/lc0" "$(OUT)/lc0"; \
@@ -35,6 +44,7 @@ linux-nocache: prep
 	img="$$(docker build --no-cache -q --target export -f ../Dockerfile.lc0 \
 		--build-arg LC0_REF="$(LC0_REF)" \
 		--build-arg LC0_BACKEND="$(LC0_BACKEND)" \
+		--build-arg BASE_IMAGE="$(LC0_BASE_IMAGE)" \
 		.. | tail -n1)"; \
 	cid="$$(docker create "$$img" /bin/true)"; \
 	docker cp "$$cid:/lc0" "$(OUT)/lc0"; \

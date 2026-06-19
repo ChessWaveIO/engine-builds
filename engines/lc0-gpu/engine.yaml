@@ -5,7 +5,7 @@ author: Leela Chess Zero developers
 version: 0.32.1
 elo: 3400
 style: Neural Network
-description: LCZero GPU package using OpenCL on Linux, Metal on macOS, DirectML on Windows, and the small official T1 256x10 network.
+description: LCZero GPU package using NVIDIA CUDA on Linux and Windows, Metal on macOS, and the small official T1 256x10 network.
 uci_options:
   WeightsFile: t1-256x10-distilled-swa-2432500.pb.gz
   Threads: 4
@@ -33,10 +33,12 @@ release_assets:
     - path: weights/lc0/t1-256x10-distilled-swa-2432500.pb.gz
       name: t1-256x10-distilled-swa-2432500.pb.gz
   windows-x86_64:
-    url: https://github.com/LeelaChessZero/lc0/releases/download/v0.32.1/lc0-v0.32.1-windows-onnx-dml.zip
+    url: https://github.com/LeelaChessZero/lc0/releases/download/v0.32.1/lc0-v0.32.1-windows-gpu-nvidia-cuda12.zip
     path: lc0.exe
     extra_paths:
-      - onnxruntime.dll
+      - cublas64_12.dll
+      - cublasLt64_12.dll
+      - cudart64_12.dll
       - mimalloc-override.dll
       - mimalloc-redirect.dll
     local_extra_paths:
